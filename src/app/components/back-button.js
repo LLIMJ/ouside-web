@@ -15,7 +15,7 @@ const Button = styled.button`
     text-decoration: underline;
     cursor: pointer;
 
-    background-color:gray;
+    // background-color:gray;
 `;
 
 export default function BackButton() {

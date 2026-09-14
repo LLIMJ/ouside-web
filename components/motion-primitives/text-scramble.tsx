@@ -1,4 +1,5 @@
 'use client';
+
 import { type JSX, useEffect, useState } from 'react';
 import { motion, MotionProps } from 'motion/react';
 
@@ -30,13 +31,16 @@ export function TextScramble({
   const MotionComponent = motion.create(
     Component as keyof JSX.IntrinsicElements
   );
+
   const [scrambledText, setScrambledText] = useState<string | null>(null);
   const [isAnimating, setIsAnimating] = useState(false);
+
   const text = children;
   const displayText = scrambledText ?? children;
 
   const scramble = async () => {
     if (isAnimating) return;
+
     setIsAnimating(true);
 
     const steps = duration / speed;
@@ -47,16 +51,21 @@ export function TextScramble({
       const progress = step / steps;
 
       for (let i = 0; i < text.length; i++) {
-        if (text[i] === ' ') {
-          scrambled += ' ';
+        const char = text[i];
+
+        // 공백과 줄바꿈은 절대 바꾸지 않음
+        if (char === ' ' || char === '\n' || char === '\r') {
+          scrambled += char;
           continue;
         }
 
         if (progress * text.length > i) {
-          scrambled += text[i];
+          scrambled += char;
         } else {
           scrambled +=
-            characterSet[Math.floor(Math.random() * characterSet.length)];
+            characterSet[
+            Math.floor(Math.random() * characterSet.length)
+            ];
         }
       }
 
@@ -79,8 +88,16 @@ export function TextScramble({
   }, [trigger]);
 
   return (
-    <MotionComponent className={className} {...props}>
+    <MotionComponent
+      className={className}
+      {...props}
+      style={{
+        whiteSpace: 'pre-wrap',
+        ...props.style,
+      }}
+    >
       {displayText}
     </MotionComponent>
   );
 }
+
