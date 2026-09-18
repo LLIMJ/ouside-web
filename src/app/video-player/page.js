@@ -190,10 +190,10 @@ export default function Page() {
                             }}
                         >
                             <img
-                                src={isPlaying ? "/images/videotape.gif" : "/images/videotape.png"}
+                                src={isPlaying ? "/AWI_image/tape.gif" : "/AWI_image/tape.png"}
                                 alt=""
-                                width={108}
-                                height={61}
+                                width={213 / 1.5}
+                                height={120 / 1.5}
                             />
                         </motion.div>
                         <StyledButton
@@ -212,7 +212,7 @@ export default function Page() {
                             opacity: isPlaying ? 0 : 1,
                         }} transition={{
                             duration: 0.7
-                        }} $width="100%" $marginTop="20px"></Line>
+                        }} $width="100%" $marginTop="0px"></Line>
 
                     <BlankBox></BlankBox>
                 </VideoContainer>

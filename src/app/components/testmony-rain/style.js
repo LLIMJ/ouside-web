@@ -6,7 +6,9 @@ export const TestimonyContainer = styled.div`
 
     width: 100%;
 
-    height: 150vh;
+    height: ${(props) =>
+        props.$falling ? "150vh" : "100vh"
+    };
 
     overflow: hidden;
 `;

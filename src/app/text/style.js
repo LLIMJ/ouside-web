@@ -35,12 +35,16 @@ export const TextBox = styled.div`
 `;
 export const NextButton = styled.button`
     position: absolute;
-    top: 80%;
-    left: 90%;
+    top: 450px;
+    left: 400px;
 
     border:none;
     background:none;
-    width:50px;
-    height:50px;
+    width:200px;
+    height:100px;
     cursor:pointer;
+
+    // background: black;
+
+    z-index: 9999;
 `;  

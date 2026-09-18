@@ -7,12 +7,13 @@ import {
     SketchingVideo,
     NextButton,
 } from "./style";
-import BackButton from '../components/back-button'
 import TextScramble from '../components/core/text-scramble';
 import TextMorphAnimation from "./text-morph";
 import { testimonies } from "../components/testmony-rain/testimonies"
 import TestimonyRain from "../components/testmony-rain/testimony-rain";
 
+import BackButton from '../components/back-button'
+import FadeInOutGirl from "../components/fade-in-out-girl"
 
 const line_real = [{
     line: `
@@ -64,9 +65,13 @@ const line_real = [{
 export default function Page() {
 
     const [isChanging, setIsChanging] = useState(false);
+    const [isSecondChanging, setIsSecondChanging] = useState(false);
+
+
     const [isNext, setIsNext] = useState(false);
     const [isTest3Changing, setIsTest3Changing] = useState(false);
     const [unexpected, setUnexpected] = useState(0);
+    const [girlStep, setGirlStep] = useState(1); // 소녀 등장 시퀀스
 
 
     const line1 = line_real[0].line;
@@ -84,9 +89,9 @@ export default function Page() {
                 {(unexpected != 2) &&
                     <SketchingVideo
                         src={isNext ?
-                            "/sketch_video/sketch_video_1.mp4"
+                            "/sketch_video/sketch_2.mp4"
                             :
-                            "/sketch_video/sketch_video_1.mp4"}
+                            "/sketch_video/sketch_1.mp4"}
                         // controls
                         autoPlay
                         muted
@@ -94,12 +99,7 @@ export default function Page() {
                 }
 
                 {/* 다음 대사로 이동하는 버튼 */}
-                {isNext ? <></> : <NextButton
-                    onClick={() => {
-                        setIsNext(true);
-                        setIsChanging(false);
-                    }}
-                >넥스트</NextButton>}
+
 
 
                 {/* 대사/증언이 나타나는  텍스트박스*/}
@@ -115,7 +115,7 @@ export default function Page() {
                             // 대사 클릭시 isChanging-> true
                             onClick={() => {
                                 // 왼쪽 대사는 바로 타이핑으로 증언으로 변환
-                                setIsChanging(true);
+                                setIsSecondChanging(true);
 
                                 // 오른쪽 대사는 3초 후 타이핑으로 증언 변환
                                 setTimeout(() => {
@@ -130,7 +130,7 @@ export default function Page() {
 
                         >
 
-                            {isChanging ? (
+                            {isSecondChanging ? (
                                 // 대사 클릭 후 true가 되며 증언을 스크램블
                                 (unexpected != 2) && <TextScramble
                                     className='font-mono text-sm'
@@ -157,7 +157,7 @@ export default function Page() {
                             $textAlign="right"
                         >
 
-                            {isChanging ? (
+                            {isSecondChanging ? (
                                 // 왼대사 클릭 후 true가 되며 증언을 스크램블
 
                                 isTest3Changing ?
@@ -195,20 +195,114 @@ export default function Page() {
 
                         {isChanging ? (
                             // 클릭 후 : isChanging = true -> 증언으로 변화
-                            <TextScramble
-                                className='font-mono text-sm'
-                                duration={15}
-                                characterSet=' '
-                            >
-                                {test1}
-                            </TextScramble>
+                            <>
+                                <TextScramble
+                                    className='font-mono text-sm'
+                                    duration={15}
+                                    characterSet=' '
+                                >
+                                    {test1}
+                                </TextScramble>
+
+                                {/* 소녀이미지_1 */}
+                                <FadeInOutGirl
+                                    src={"/AWI_image/girl_motion_1.png"}
+                                    alt={"girl_1"}
+                                    top={"200px"}
+                                    left={"-800px"}
+                                    delay={0}
+                                    duration={0.5}
+                                    stay={1}
+                                    height={"400px"}
+                                    onComplete={() => { setGirlStep(2) }}
+
+                                />
+                                {/* 소녀이미지_2 */}
+                                {girlStep >= 2 &&
+                                    <FadeInOutGirl
+                                        src={"/AWI_image/girl_motion_2.png"}
+                                        alt={"girl_2"}
+                                        top={"200px"}
+                                        left={"-600px"}
+                                        delay={0}
+                                        duration={0.5}
+                                        stay={1}
+                                        height={"400px"}
+                                        onComplete={() => { setGirlStep(3) }}
+
+                                    />
+                                }
+
+
+                                {/* 소녀이미지_3 */}
+                                {girlStep >= 3 &&
+                                    <FadeInOutGirl
+                                        src={"/AWI_image/girl_motion_3.png"}
+                                        alt={"girl_3"}
+                                        top={"200px"}
+                                        left={"-400px"}
+                                        delay={0}
+                                        duration={0.5}
+                                        stay={1}
+                                        height={"400px"}
+                                        onComplete={() => { setGirlStep(4) }}
+
+                                    />
+                                }
+                                {/* 소녀이미지_4 */}
+                                {girlStep >= 4 &&
+                                    <FadeInOutGirl
+                                        src={"/AWI_image/girl_motion_4.png"}
+                                        alt={"girl_4"}
+                                        top={"200px"}
+                                        left={"-200px"}
+                                        delay={0}
+                                        duration={0.5}
+                                        stay={1}
+                                        height={"400px"}
+                                        onComplete={() => { setGirlStep(5) }}
+
+                                    />
+                                }
+                                {/* 소녀이미지_5 */}
+                                {girlStep >= 5 &&
+                                    <>
+                                        <FadeInOutGirl
+                                            src={"/AWI_image/girl_motion_5.png"}
+                                            alt={"girl_5"}
+                                            top={"450px"}
+                                            left={"400px"}
+                                            delay={0}
+                                            duration={0.5}
+                                            stay={100}
+                                            height={"100px"}
+
+
+                                        />
+                                        <NextButton
+                                            onClick={() => {
+                                                console.log("NEXT CLICK");
+                                                setIsChanging(false);
+                                                setIsNext(true);
+
+                                            }}
+
+                                        ></NextButton>
+                                    </>
+                                }
+                            </>
                         ) : (
                             // 클릭 전 : isChanging = false -> 대사 등장
-                            <TextMorphAnimation
-                                texts={["", line1]}
-                                morphTime={4}
-                            />
+                            <>
+                                {/* 대사 */}
+                                <TextMorphAnimation
+                                    texts={["", line1]}
+                                    morphTime={4}
+                                />
+
+                            </>
                         )}
+
 
 
                     </TextBox>

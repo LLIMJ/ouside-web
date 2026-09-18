@@ -452,7 +452,7 @@ export default function TestimonyRain() {
 
                 setFalling(true);
 
-            }, 2000);
+            }, 7000);
 
 
         return () => {
@@ -939,6 +939,7 @@ export default function TestimonyRain() {
         <TestimonyContainer
             ref={containerRef}
             className="testimony-container"
+            $falling={falling}
         >
 
             {/* ==================================

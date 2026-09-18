@@ -106,19 +106,13 @@ export const LinkContainer = styled.div`
 
     margin-top:150px;
 `;
-export const Tape = styled(Image)`
-    width: 108px;
-    height: 61px;
-    object-fit: contain;
 
-    
-`;
 export const StyledButton = styled.button`
     text-decoration: underline;
     background-color: transparent; 
     border: none;
     outline: none;
-    margin-left:10px;
+    margin-right:30px;
     cursor: pointer;
 
     
