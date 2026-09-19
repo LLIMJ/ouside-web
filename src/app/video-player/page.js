@@ -89,14 +89,14 @@ export default function Page() {
                 >
                     <NavBox>
                         <Title>REMORY</Title>
-                        <Line $width={288} $marginTop={"0px"}></Line>
-                        <div>→ Project</div>
+                        <Line $width={288} $marginTop={"0px"} $thickness="4px"></Line>
+                        <div>➢ Project</div>
                         <div>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→ 스몰토크(Small Talk)(2026)
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;➢ 스몰토크(Small Talk)(2026)
                         </div>
-                        <div>→ About</div>
-                        <div>→ Material</div>
-                        <div>→ Contact</div>
+                        <div>➢ About</div>
+                        <div>➢ Material</div>
+                        <div>➢ Contact</div>
                     </NavBox>
                     <FooterBox>
                         <Image
@@ -163,11 +163,11 @@ export default function Page() {
                         }}>
 
                         <li>제목: &lt;스몰토크&gt;</li>
-                        <li>Year: 2026</li>
-                        <li>Created for 2026 Art With Impact Program</li>
-                        <li>Created by team REMORY (Jieun Lim, Juha Oh and Seyeon Cha)</li>
-                        <li>Voice: Korean</li>
-                        <li>Subtitle: English</li>
+                        <li>제작 연도: 2026</li>
+                        <li>2026 Art With Impact Program 출품작</li>
+                        <li>제작: REMORY (임지은, 오주하, 차세연)</li>
+                        <li>언어: 한국어</li>
+                        <li>자막: 영어</li>
 
                     </InfoBox>
 

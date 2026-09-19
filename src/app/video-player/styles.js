@@ -10,6 +10,9 @@ export const FullScreen = styled.div`
     display:flex;
     flex-direction:column;
 
+    font-family: 'Pretendard';
+    font-weight: 400;
+    font-size: 16px;
 `;
 export const Header = styled.div`
     width:100%;
@@ -85,7 +88,7 @@ export const Video = styled.video`
 export const Line = styled.div`
     width: ${(props) => props.$width};
     margin-top:${(props) => props.$marginTop};
-    border-top: 2.5px solid black;
+    border-top: ${(props) => props.$thickness || "1px"} solid black;
 `;
 export const InfoBox = styled.ul`
     padding-left:20px;
@@ -96,7 +99,11 @@ export const InfoBox = styled.ul`
 
 export const Title = styled.h4`
     margin-top:50px;
+
+    font-weight: 700;
+    font-size: 20px;
 `;
+
 export const LinkContainer = styled.div`
     width:100%;
     display:flex;
@@ -114,13 +121,14 @@ export const StyledButton = styled.button`
     outline: none;
     margin-right:30px;
     cursor: pointer;
-
-    
-
 `;
+
 export const Footer = styled.div`
     margin:50px 0px;
+
+    font-size: 12px;
 `;
+
 export const BlankBox = styled.div`
     width:100%;
     height:30px;
