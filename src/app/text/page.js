@@ -23,6 +23,7 @@ const line_real = [{
 부자 된다고... 
 그래서 따라갔었어.
 `,
+    lineFont: "NotoSerif",
     testimony: `하루는, ‘도아야! 가라는 데로 가면, 우리가 부자가 된다’ 카고,
 ‘먹고 살기가 괜찮다’고 카고. 
 그래 내가 가만히 생각하니까 내가 가면 나도 잘 먹고 잘 입고, 
@@ -31,7 +32,8 @@ const line_real = [{
 거기 가서, 노력을 하면 돈을 부쳐 보내 살게 해준다고. 
 그 참, 내가 가서 시키는 대로 하믄 돈을 부쳐 보내주면 부모형제가 살기가 괜찮을긴 갚다. 
 그래 생각해서 따라 간 거지.
-`
+`,
+    testimonyFont: "N1",
 },
 {
     line: `
@@ -39,6 +41,7 @@ const line_real = [{
 뺨 때리고, 발로 차고... 
 정말 몸이 내 몸이 아닌 것처럼 아프더라.
 `,
+    lineFont: "NotoSerif",
     testimony: `
 안 할려고 하니까. 뚜드려 패고 잡아갔고. 
 죽기 살기로 두드려 패주지. 
@@ -47,18 +50,21 @@ const line_real = [{
 그 뭐 자그마한 게 뭐. 건장한 장골들이 때려잡는데 
 누가 그걸 견딜 수 있겠소. 말로 몬 해요.
 `,
+    testimonyFont: "N2",
 },
 {
     line: `
 그렇게 한 명이 나가면 또 다른 사람이 들어오고,
 또 들어오고...
 `,
+    lineFont: "NotoSerif",
     testimony: `
 매일 군인들이 방 앞에 줄을 섰어요.
 하루에 10명은 왔어요.
 성병이 안 걸리려고 밑에다 가루를 뿌리고, 팔뚝에 606호 주사도 맞았어요.
 고통스러웠어요.
 `,
+    testimonyFont: "N3",
 }];
 
 
@@ -112,6 +118,7 @@ export default function Page() {
                             top="70%"
                             width="500px"
                             $textAlign="left"
+                            $fontFamily={isSecondChanging ? line_real[1].testimonyFont : line_real[1].lineFont}
                             // 대사 클릭시 isChanging-> true
                             onClick={() => {
                                 // 왼쪽 대사는 바로 타이핑으로 증언으로 변환
@@ -155,6 +162,7 @@ export default function Page() {
                             top="80%"
                             width="500px"
                             $textAlign="right"
+                            $fontFamily={isTest3Changing ? line_real[2].testimonyFont : line_real[2].lineFont}
                         >
 
                             {isSecondChanging ? (
@@ -188,6 +196,7 @@ export default function Page() {
                         top="70px"
                         width="500px"
                         $textAlign="left"
+                        $fontFamily={isChanging ? line_real[0].testimonyFont : line_real[0].lineFont}
                         onClick={() => {
                             setIsChanging(true);
                         }}
@@ -197,7 +206,7 @@ export default function Page() {
                             // 클릭 후 : isChanging = true -> 증언으로 변화
                             <>
                                 <TextScramble
-                                    className='font-mono text-sm'
+                                    // className='font-mono text-sm'
                                     duration={15}
                                     characterSet=' '
                                 >
@@ -212,7 +221,7 @@ export default function Page() {
                                     left={"-800px"}
                                     delay={0}
                                     duration={0.5}
-                                    stay={1}
+                                    stay={15}
                                     height={"400px"}
                                     onComplete={() => { setGirlStep(2) }}
 
@@ -318,7 +327,7 @@ export default function Page() {
                         $textAlign="right"
                     >
                         <TextScramble
-                            className='font-mono text-sm'
+                            // className='font-mono text-sm'
                             // duration={5}
                             characterSet=' '
                         >

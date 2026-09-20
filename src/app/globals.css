@@ -22,3 +22,73 @@ body {
     font-weight: 400;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'N1';
+    src: url('/fonts/NanumSuJubEunDaeHagSaeng.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'N2';
+    src: url('/fonts/NanumSoBangGwanEuiGiDo.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'N3';
+    src: url('/fonts/NanumSaRangHaeADeur.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'N4';
+    src: url('/fonts/NanumOeHarMeoNiGeurSsi.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'N5';
+    src: url('/fonts/NanumNaMuJeongWeon.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'N6';
+    src: url('/fonts/NanumJinJuBagGyeongACe.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'N7';
+    src: url('/fonts/NanumHarABeoJiEuiNaNum.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'N8';
+    src: url('/fonts/NanumGomSinCe.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'N9';
+    src: url('/fonts/NanumGangBuJangNimCe.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'N10';
+    src: url('/fonts/NanumBaReunJeongSin.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}

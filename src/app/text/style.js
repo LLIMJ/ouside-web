@@ -32,6 +32,8 @@ export const TextBox = styled.div`
     text-align:${(props) => props.$textAlign};
 
     cursor:pointer;
+
+    font-family: ${(props) => props.$fontFamily || "inherit"}, sans-serif;
 `;
 export const NextButton = styled.button`
     position: absolute;
