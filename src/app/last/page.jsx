@@ -45,7 +45,7 @@ const NeonText = styled.div`
 
     animation: ${glow} 1.5s infinite alternate;
 
-    font-family: 'Arial', sans-serif;
+    font-family: 'N3';
     
 `;
 
