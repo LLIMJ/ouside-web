@@ -61,6 +61,8 @@ export const TestimonyItem = styled.div`
                 color: red;
             }
         `}
+    
+    font-family: ${(props) => props.$fontFamily || "inherit"}, sans-serif;
 `;
 
 
@@ -169,4 +171,6 @@ export const ShatterWord = styled.span`
                 color: red;
             }
         `}
+    
+    font-family: ${(props) => props.$fontFamily || "inherit"}, sans-serif;
 `;

@@ -23,7 +23,7 @@ export default function BackButton() {
 
     return (
         <Button onClick={() => router.back()}>
-            ← 돌아가기
+            ➢ 돌아가기
         </Button>
     );
 }
