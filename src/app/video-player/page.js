@@ -92,7 +92,7 @@ export default function Page() {
                         <Line $width={288} $marginTop={"0px"} $thickness="4px"></Line>
                         <div>➢ Project</div>
                         <div>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;➢ 스몰토크(Small Talk)(2026)
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;➢ <span style={{ fontWeight: 700, textDecoration: "underline" }}>스몰토크 (Small Talk)(2026) </span>
                         </div>
                         <div>➢ About</div>
                         <div>➢ Material</div>
