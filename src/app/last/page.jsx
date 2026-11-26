@@ -31,9 +31,9 @@ const Background = styled.div`
 `;
 
 const NeonText = styled.div`
-    font-size: 2rem;
+    font-size: 3rem;
     color: #fff;
-
+    line-height:90px;
     text-align:center;
 
     text-shadow:
@@ -53,7 +53,8 @@ export default function Page() {
     return (
         <Background>
             <NeonText>
-                잔혹한 전쟁이 가져온 나의 상처가 되풀이되지 않기를 바랍니다. <br />전쟁이 없는 세상을 원합니다.
+                우리는 끝나지 않았습니다.
+                <br />일본 정부가 우리 명예를 회복시켜주고 법적 사죄, 배상해야 끝이 날 것입니다.
             </NeonText>
         </Background >
 

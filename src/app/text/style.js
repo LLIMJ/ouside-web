@@ -32,7 +32,7 @@ export const TextBox = styled.div`
     text-align:${(props) => props.$textAlign};
 
     cursor:pointer;
-
+    font-size: ${(props) => props.$fontSize || "16px"};
     font-family: ${(props) => props.$fontFamily || "inherit"}, sans-serif;
 `;
 export const NextButton = styled.button`

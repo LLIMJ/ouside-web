@@ -30,7 +30,7 @@
     "**/*.mts",
     "**/*.ts",
     "**/*.tsx",
-    "src/app/video-player/page.js"
+    "src/app/(with-sidebar)/video-player/page.jsx"
   ],
   "exclude": [
     "node_modules"

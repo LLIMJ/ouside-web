@@ -17,6 +17,10 @@ import {
 import { testimonies } from "./testimonies";
 
 
+// ----------------------------------------
+// 폰트
+// ----------------------------------------
+
 const fonts = [
     "NotoSerif",
     "N1",
@@ -30,6 +34,11 @@ const fonts = [
     "N9",
     "N10",
 ];
+
+
+// ----------------------------------------
+// 폰트 사이즈
+// ----------------------------------------
 
 const sizes = [
     "16px",
@@ -118,7 +127,6 @@ function generatePositions(
 
     let attempts = 0;
 
-
     while (
         positions.length < count &&
         attempts < 100000
@@ -130,7 +138,6 @@ function generatePositions(
 
         const itemWidth =
             widths[index];
-
 
         const candidate = {
             x:
@@ -156,7 +163,6 @@ function generatePositions(
             width: itemWidth,
         };
 
-
         const overlaps =
             positions.some(
                 (position) =>
@@ -181,7 +187,6 @@ function generatePositions(
                     position.y
             );
 
-
         if (!overlaps) {
             positions.push(
                 candidate
@@ -192,6 +197,7 @@ function generatePositions(
 
     // 공간이 부족해도
     // 모든 증언에 위치를 부여
+
     while (
         positions.length < count
     ) {
@@ -200,7 +206,6 @@ function generatePositions(
 
         const itemWidth =
             widths[index];
-
 
         positions.push({
             x:
@@ -280,7 +285,6 @@ export default function TestimonyRain() {
 
     // ----------------------------------------
     // 측정된 단어 데이터
-    // 이 state는 "한 번"만 업데이트됨
     // ----------------------------------------
 
     const [shatterWords, setShatterWords] =
@@ -356,7 +360,6 @@ export default function TestimonyRain() {
                     testimonies.length
                 );
 
-
             const newPositions =
                 generatePositions(
                     testimonies.length,
@@ -364,7 +367,6 @@ export default function TestimonyRain() {
                     window.innerHeight * 1.5,
                     newWidths
                 );
-
 
             setWidths(
                 newWidths
@@ -403,7 +405,6 @@ export default function TestimonyRain() {
 
         let count = 0;
 
-
         const timer =
             setInterval(() => {
 
@@ -412,7 +413,6 @@ export default function TestimonyRain() {
                 setActiveCount(
                     count
                 );
-
 
                 if (
                     count >=
@@ -437,7 +437,7 @@ export default function TestimonyRain() {
 
     // ----------------------------------------
     // 3. 모든 증언 등장 후
-    // 2초 대기
+    // 7초 대기
     // ----------------------------------------
 
     useEffect(() => {
@@ -510,10 +510,8 @@ export default function TestimonyRain() {
         let globalWordIndex = 0;
 
 
-        /*
-            각 증언의 MeasurementWord를
-            순서대로 읽는다.
-        */
+        // 각 증언의 MeasurementWord를
+        // 순서대로 읽는다.
 
         testimonies.forEach(
             (text, testimonyIndex) => {
@@ -587,9 +585,7 @@ export default function TestimonyRain() {
         );
 
 
-        /*
-            여기서 딱 한 번 React state 변경
-        */
+        // 여기서 딱 한 번 React state 변경
 
         setShatterWords(
             measuredWords
@@ -724,6 +720,7 @@ export default function TestimonyRain() {
 
 
                     // 살짝 좌우로 흩어짐
+
                     Matter.Body.setVelocity(
                         body,
                         {
@@ -738,6 +735,7 @@ export default function TestimonyRain() {
 
 
                     // 살짝 회전
+
                     Matter.Body.setAngularVelocity(
                         body,
                         (Math.random() -
@@ -779,17 +777,6 @@ export default function TestimonyRain() {
 
         const update =
             (currentTime) => {
-
-                /*
-                    이전 코드와 가장 중요한 차이:
-
-                    ❌ setState()
-                    ❌ map()
-                    ❌ find()
-
-                    전혀 사용하지 않음.
-                */
-
 
                 const delta =
                     Math.min(
@@ -925,13 +912,8 @@ export default function TestimonyRain() {
     }
 
 
-    /*
-        shatterWords가 생성되기 전에는
-        원본 증언을 유지한다.
-
-        shatterWords가 만들어진 순간
-        원본을 숨기고 Matter 단어 표시.
-    */
+    // shatterWords가 생성되기 전에는
+    // 원본 증언을 유지한다.
 
     const showOriginal =
         shatterWords.length === 0;
@@ -987,10 +969,8 @@ export default function TestimonyRain() {
                                 1;
 
 
-                            /*
-                                이 증언보다 앞에 있는
-                                단어가 몇 개인지 계산
-                            */
+                            // 이 증언보다 앞에 있는
+                            // 단어가 몇 개인지 계산
 
                             let wordOffset = 0;
 
@@ -1050,6 +1030,12 @@ export default function TestimonyRain() {
                                         isLast
                                     }
 
+                                    data-is-last={
+                                        isLast
+                                            ? "true"
+                                            : "false"
+                                    }
+
                                     onClick={
                                         isLast
                                             ? handleLastTestimonyClick
@@ -1090,10 +1076,6 @@ export default function TestimonyRain() {
 
                                     {/* ----------------
                                         측정용 텍스트
-
-                                        실제 텍스트와
-                                        똑같은 폰트/폭으로
-                                        단어 위치 계산
                                     ---------------- */}
 
                                     <MeasurementLayer>
@@ -1196,6 +1178,12 @@ export default function TestimonyRain() {
 
                                 $isLast={
                                     word.isLast
+                                }
+
+                                data-is-last={
+                                    word.isLast
+                                        ? "true"
+                                        : "false"
                                 }
 
                                 onClick={

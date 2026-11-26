@@ -11,6 +11,18 @@ export const TestimonyContainer = styled.div`
     };
 
     overflow: hidden;
+
+
+    /*
+        isLast인 증언 중 하나에 hover하면
+        모든 isLast 증언의 색상 변경
+    */
+
+    &:has([data-is-last="true"]:hover) {
+        [data-is-last="true"] {
+            color: red;
+        }
+    }
 `;
 
 
@@ -30,7 +42,7 @@ export const TestimonyItem = styled.div`
         props.$fontSize};
 
     font-family: ${(props) =>
-        props.$fontFamily};
+        props.$fontFamily || "inherit"}, sans-serif;
 
     line-height: 1;
 
@@ -56,13 +68,7 @@ export const TestimonyItem = styled.div`
 
             transition:
                 color 0.2s ease;
-
-            &:hover {
-                color: red;
-            }
         `}
-    
-    font-family: ${(props) => props.$fontFamily || "inherit"}, sans-serif;
 `;
 
 
@@ -130,7 +136,7 @@ export const ShatterWord = styled.span`
         props.$fontSize};
 
     font-family: ${(props) =>
-        props.$fontFamily};
+        props.$fontFamily || "inherit"}, sans-serif;
 
     line-height: 1;
 
@@ -159,6 +165,7 @@ export const ShatterWord = styled.span`
             ? "auto"
             : "none"};
 
+
     ${(props) =>
         props.$isLast &&
         `
@@ -166,11 +173,5 @@ export const ShatterWord = styled.span`
 
             transition:
                 color 0.2s ease;
-
-            &:hover {
-                color: red;
-            }
         `}
-    
-    font-family: ${(props) => props.$fontFamily || "inherit"}, sans-serif;
 `;

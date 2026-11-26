@@ -17,37 +17,33 @@ import FadeInOutGirl from "../components/fade-in-out-girl"
 
 const line_real = [{
     line: `
-따라갔어.
-돈 벌게 해주겠다고... 
-많이 벌게 해주겠다고... 
-부자 된다고... 
+따라갔어. 돈 벌게 해주겠다고... 
+많이 벌게 해주겠다고... 부자 된다고... 
 그래서 따라갔었어.
 `,
     lineFont: "NotoSerif",
-    testimony: `하루는, ‘도아야! 가라는 데로 가면, 우리가 부자가 된다’ 카고,
-‘먹고 살기가 괜찮다’고 카고. 
-그래 내가 가만히 생각하니까 내가 가면 나도 잘 먹고 잘 입고, 
-부모 형제간도 잘 살고 할꺼니, 그래볼까 생각하고 있다 그랬더니. 
-와 가지고는 아무 날은 데리고 간다고 해. 
-거기 가서, 노력을 하면 돈을 부쳐 보내 살게 해준다고. 
-그 참, 내가 가서 시키는 대로 하믄 돈을 부쳐 보내주면 부모형제가 살기가 괜찮을긴 갚다. 
-그래 생각해서 따라 간 거지.
+    testimony: `하루는, ‘도아야! 가라는 데로 가면, 우리가 부자가 된다’ 카고, 
+    ‘먹고 살기가 괜찮다’고 카고. 그래 내가 가만히 생각하니까
+        내가 가면 나도 잘 먹고 잘 입고, 부모 형제간도 잘 살고 할꺼니, 그래볼까 생각하고 있다
+        
+    그랬더니 와 가지고는 아무 날은 데리고 간다고 해.
+        거기 가서, 노력을 하면 돈을 부쳐 보내 살게 해준다고. 
+            그 참, 내가 가서 시키는 대로 하믄 돈을 부쳐 보내주면 부모형제가 살기가 괜찮을긴 갚다.
+                그래 생각해서 따라 간 거지.
 `,
     testimonyFont: "N1",
 },
 {
     line: `
 싫다고 뿌리치면 맞았어.
-뺨 때리고, 발로 차고... 
-정말 몸이 내 몸이 아닌 것처럼 아프더라.
+    뺨 때리고, 발로 차고... 
+        정말 몸이 내 몸이 아닌 것처럼 아프더라.
 `,
     lineFont: "NotoSerif",
     testimony: `
-안 할려고 하니까. 뚜드려 패고 잡아갔고. 
-죽기 살기로 두드려 패주지. 
+안 할려고 하니까. 뚜드려 패고 잡아갔고. 죽기 살기로 두드려 패주지. 
 잡아 갔고 죽도록 패주지 말로 못하요. 
-밥도 굶고 사흘로 엎드려 있다가. 
-그 뭐 자그마한 게 뭐. 건장한 장골들이 때려잡는데 
+밥도 굶고 사흘로 엎드려 있다가. 그 뭐 자그마한 게 뭐. 건장한 장골들이 때려잡는데 
 누가 그걸 견딜 수 있겠소. 말로 몬 해요.
 `,
     testimonyFont: "N2",
@@ -116,9 +112,10 @@ export default function Page() {
                         <TextBox
                             left="100px"
                             top="70%"
-                            width="500px"
-                            $textAlign="left"
+                            width="600px"
+                            $textAlign="start"
                             $fontFamily={isSecondChanging ? line_real[1].testimonyFont : line_real[1].lineFont}
+                            $fontSize="22px"
                             // 대사 클릭시 isChanging-> true
                             onClick={() => {
                                 // 왼쪽 대사는 바로 타이핑으로 증언으로 변환
@@ -127,12 +124,12 @@ export default function Page() {
                                 // 오른쪽 대사는 3초 후 타이핑으로 증언 변환
                                 setTimeout(() => {
                                     setIsTest3Changing(true);
-                                }, 3000);
+                                }, 9000);
 
                                 // 와다다 시작 대사는 6초 후 타이핑 등장
                                 setTimeout(() => {
                                     setUnexpected(2);
-                                }, 9000);
+                                }, 19000);
                             }}
 
                         >
@@ -141,7 +138,7 @@ export default function Page() {
                                 // 대사 클릭 후 true가 되며 증언을 스크램블
                                 (unexpected != 2) && <TextScramble
                                     className='font-mono text-sm'
-                                    duration={3}
+                                    duration={9}
                                     characterSet=' '
                                 >
                                     {test2}
@@ -158,10 +155,12 @@ export default function Page() {
                         </TextBox>
                         {/* 오른쪽 대사/증언 */}
                         <TextBox
-                            left="700px"
+                            left="600px"
                             top="80%"
-                            width="500px"
-                            $textAlign="right"
+                            width="700px"
+                            $textAlign="end"
+                            $fontSize="22px"
+
                             $fontFamily={isTest3Changing ? line_real[2].testimonyFont : line_real[2].lineFont}
                         >
 
@@ -171,7 +170,7 @@ export default function Page() {
                                 isTest3Changing ?
                                     (unexpected != 2) && <TextScramble
                                         className='font-mono text-sm'
-                                        duration={6}
+                                        duration={8}
                                         characterSet=' '
                                     >
                                         {test3}
@@ -192,10 +191,11 @@ export default function Page() {
                     :
                     // 첫번째 대사/증언
                     <TextBox
-                        left="800px"
-                        top="70px"
-                        width="500px"
+                        left="750px"
+                        top="50px"
+                        width="700px"
                         $textAlign="left"
+                        $fontSize="22px"
                         $fontFamily={isChanging ? line_real[0].testimonyFont : line_real[0].lineFont}
                         onClick={() => {
                             setIsChanging(true);
@@ -232,7 +232,7 @@ export default function Page() {
                                         src={"/AWI_image/girl_motion_2.png"}
                                         alt={"girl_2"}
                                         top={"200px"}
-                                        left={"-600px"}
+                                        left={"-500px"}
                                         delay={0}
                                         duration={0.5}
                                         stay={1}
@@ -249,7 +249,7 @@ export default function Page() {
                                         src={"/AWI_image/girl_motion_3.png"}
                                         alt={"girl_3"}
                                         top={"200px"}
-                                        left={"-400px"}
+                                        left={"-200px"}
                                         delay={0}
                                         duration={0.5}
                                         stay={1}
@@ -264,7 +264,7 @@ export default function Page() {
                                         src={"/AWI_image/girl_motion_4.png"}
                                         alt={"girl_4"}
                                         top={"200px"}
-                                        left={"-200px"}
+                                        left={"100px"}
                                         delay={0}
                                         duration={0.5}
                                         stay={1}
@@ -273,7 +273,7 @@ export default function Page() {
 
                                     />
                                 }
-                                {/* 소녀이미지_5 */}
+                                {/* 소녀이미지_5 발자국 */}
                                 {girlStep >= 5 &&
                                     <>
                                         <FadeInOutGirl

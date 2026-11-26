@@ -30,7 +30,7 @@ const Text = styled.span`
     position: absolute;
     width: 100%;
 
-    text-align: left;
+    // text-align: left;
     white-space: pre-line;
     user-select: none;
 
