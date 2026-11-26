@@ -64,16 +64,22 @@ export default function Page() {
                 }}>스몰토크(Small Talk) (2026)</Title>
 
             <Video
-                as={motion.video}
-                src="/video/SmallTalk_v.0.4.mp4"
-                controls
+                as={motion.div}
                 animate={{
                     opacity: isPlaying ? 0 : 1,
                 }}
                 transition={{
-                    duration: 0.7
+                    duration: 0.7,
                 }}
-            />
+            >
+                <iframe
+                    src="https://www.youtube.com/embed/D2sW4oIvaLM"
+                    title="SmallTalk"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                />
+            </Video>
 
             <InfoBox as={motion.ul}
                 animate={{
@@ -181,10 +187,24 @@ const VideoContainer = styled.div`
     padding-right:20%;
     // margin-bottom:100px;
 `;
-const Video = styled.video`
-    width:600px;
-    margin-bottom:40px;
-    
+const Video = styled.div`
+  position: relative;
+  flex-shrink: 0;
+  width: 600px;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 338px; /* 600 * 9 / 16 보장 */
+  margin-bottom: 40px;
+  background-color: #111; /* 로딩 중 영역 확인용 */
+  overflow: hidden;
+
+  & > iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
 `;
 const Line = styled.div`
     width: ${(props) => props.$width};
